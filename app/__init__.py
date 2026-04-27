@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 
 
 def create_app():
+    print("DEBUG: Initializing Flask application...")
     app = Flask(__name__,
                 template_folder='../templates',
                 static_folder='../static')
