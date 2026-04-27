@@ -24,3 +24,5 @@ def create_app():
         return jsonify({'success': False, 'error': 'Internal server error'}), 500
 
     return app
+
+app = create_app()
