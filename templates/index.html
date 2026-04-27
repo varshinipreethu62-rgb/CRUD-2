@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - AI Powered</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1.4">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🎓 Student Management</h1>
+            <p class="subtitle">Manage your students with AI assistance</p>
+
+            <!-- Add Student Form -->
+            <div class="form-section">
+                <div class="input-group">
+                    <input type="text" id="studentName" placeholder="Student Name" class="input-field">
+                    <input type="email" id="studentEmail" placeholder="Student Email" class="input-field">
+                    <button id="addBtn" class="btn btn-primary">Add Student</button>
+                </div>
+                <div id="errorMsg" class="error-message"></div>
+            </div>
+
+            <!-- Student List -->
+            <div class="task-list-section">
+                <h2>Active Students</h2>
+                <div id="studentList" class="task-list">
+                    <p class="loading">Loading students...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating AI Assistant Widget -->
+    <div id="aiWidget" class="ai-widget">
+        <button id="aiToggleBtn" class="ai-toggle-btn">
+            <i class="fas fa-robot"></i>
+            <span>Ask AI Assistant</span>
+        </button>
+        
+        <div id="aiChatScreen" class="ai-chat-screen">
+            <div class="chat-header">
+                <div class="header-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h3>Mistral AI</h3>
+                        <p>Student Database Helper</p>
+                    </div>
+                </div>
+                <button id="closeChat" class="close-chat">&times;</button>
+            </div>
+            
+            <div id="chatHistory" class="chat-history">
+                <div class="ai-msg">Hello! I can answer questions about your students. Try asking "How many students are there?"</div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Ask a question..." class="chat-input">
+                <button id="askBtn" class="ask-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Student</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input 
+                    type="text" 
+                    id="editName" 
+                    placeholder="Student Name" 
+                    class="input-field"
+                >
+                <input 
+                    type="email" 
+                    id="editEmail" 
+                    placeholder="Student Email" 
+                    class="input-field"
+                >
+            </div>
+            <div class="modal-footer">
+                <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
+                <button id="saveBtn" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}?v=1.5"></script>
+</body>
+</html>

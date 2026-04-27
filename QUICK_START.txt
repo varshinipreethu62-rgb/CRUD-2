@@ -1,0 +1,107 @@
+# Quick Start Guide
+
+## 1️⃣ SETUP (First Time Only)
+
+### Open PowerShell/Command Prompt and run:
+
+```
+cd c:\Users\Varshini\ s\OneDrive\Desktop\crud-app
+
+# Create environment
+python -m venv venv
+
+# Activate environment
+venv\Scripts\activate
+
+# Install packages
+pip install -r requirements.txt
+```
+
+## 2️⃣ CONFIGURE SUPABASE
+
+1. Go to https://supabase.com
+2. Create new project
+3. Create table "students" with columns:
+   - id (INT, Primary Key, auto-increment)
+   - name (TEXT)
+   - email (TEXT)
+
+4. Copy from Settings → API:
+   - Project URL
+   - Anon Key
+
+5. Edit `.env` file and paste your credentials:
+```
+SUPABASE_URL=your_url_here
+SUPABASE_KEY=your_key_here
+```
+
+## 3️⃣ RUN THE APP
+
+```
+# Make sure venv is activated
+python app.py
+```
+
+Go to: http://127.0.0.1:5000
+
+## 4️⃣ TEST IT
+
+- Type a student name and email
+- Click "Add Student"
+- See it appear in the list
+- Click "Edit" to update
+- Click "Delete" to remove
+
+## ✅ Done!
+
+Your CRUD app is working! 🎉
+
+---
+
+## 🔄 How to Run Later
+
+Every time you want to run the app:
+
+```
+# Navigate to folder
+cd c:\Users\Varshini\ s\OneDrive\Desktop\crud-app
+
+# Activate environment (if not already)
+venv\Scripts\activate
+
+# Run app
+python app.py
+
+# Open browser
+# http://127.0.0.1:5000
+```
+
+## 📚 File Overview
+
+| File | Purpose |
+|------|---------|
+| **app.py** | Flask backend with API routes |
+| **templates/index.html** | Main HTML page |
+| **static/style.css** | Styling |
+| **static/script.js** | Frontend logic (fetch calls) |
+| **.env** | Supabase credentials |
+| **requirements.txt** | Python packages |
+
+## 🆘 Common Issues
+
+**Venv not activating?**
+- Make sure you're in PowerShell or CMD
+- Try: `venv\Scripts\activate.bat`
+
+**Port 5000 in use?**
+- Edit app.py last line: `app.run(debug=True, port=5001)`
+
+**Students not showing?**
+- Check browser console (F12) for errors
+- Verify `.env` has correct Supabase credentials
+- Make sure table is named exactly "students"
+
+---
+
+Good luck! Questions? Check README.md
